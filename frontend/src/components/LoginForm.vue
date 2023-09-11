@@ -3,9 +3,15 @@
     <div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
       <div class="mx-auto w-full max-w-sm lg:w-96">
         <div>
-          <img class="h-10 flex w-full"
-               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-               alt="" />
+          <ImageViewer image-size="300px"
+                       image-alt=""
+                       image-class=""
+                       image-url="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+
+          />
+<!--          <img class="h-10 flex w-full"-->
+<!--               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"-->
+<!--               alt="" />-->
           <h2 class="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>
@@ -72,8 +78,12 @@
 <script>
     import axios from 'axios';
     import router from "@/router";
+    import ImageViewer from "@/components/ImageViewer";
     export default {
         name: "LoginFrom",
+        components: {
+          ImageViewer
+        },
         data() {
             return {
                 username: '',
