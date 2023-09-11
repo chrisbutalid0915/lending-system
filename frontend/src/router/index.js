@@ -6,7 +6,7 @@ import store from '@/store';
 const routes = [
     {
         path: "/",
-        redirect: "/login"
+        redirect: "/dashboard",
     },
     {
         path: "/login",
@@ -17,15 +17,29 @@ const routes = [
         path: "/dashboard",
         name: "Dashboard",
         component: DashboardForm,
-        meta: {
-            requiresAuth: true
+        state: {
+            isAuthenticated: true
         },
     }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (!store.getters.isAuthenticated) {
+      // Redirect to the login page if not authenticated
+        next({ name: 'Login' });
+    } else {
+        next();
+    }
+  } else{
+      next();
+  }
+});
+
+export default router;

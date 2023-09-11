@@ -6,35 +6,32 @@
 
 <script>
 
-// import axios from "axios";
+import axios from "axios";
+import router from '@/router';
 
 export default {
   name: 'App',
   components: {
   },
   mounted() {
-    this.$store.commit('initializeStore')
-    // const authToken = localStorage.getItem('authToken')
-    // if (authToken) {
-    //   this.authenticate_token(authToken)
-    // }
+    this.authenticate_token()
   },
   methods: {
-    // async authenticate_token(authToken){
-    //   try {
-    //     const response = await axios.post('/api/v1/auth-token/', {
-    //       key: authToken,
-    //     });
-    //     if (response.status === 200) {
-    //         const token = response.data.token;
-    //         console.log("Valid Credentials")
-    //         this.$store.commit("login", token)
-    //     }
-    //   } catch (error) {
-    //       console.log("Invalid Credentials")
-    //       this.$store.commit("logout")
-    //   }
-    // }
+    async authenticate_token(){
+      try {
+        const authToken = localStorage.getItem('authToken');
+        const response = await axios.post('/api/v1/auth-token/', {
+          key: authToken,
+        });
+        if (response.status === 200) {
+            console.log("Valid Credentials")
+            this.$store.commit("login")
+        }
+      } catch (error) {
+          console.log("Invalid Credentials")
+          this.$store.commit("logout")
+      }
+    }
   }
 }
 </script>

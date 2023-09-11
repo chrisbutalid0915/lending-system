@@ -15,7 +15,7 @@
 
 <script>
     import axios from 'axios';
-    // import { mapActions } from 'vuex';
+    import router from "@/router";
     export default {
         name: "LoginFrom",
         data() {
@@ -24,9 +24,7 @@
                 password: '',
             };
         },
-
         methods: {
-            // ...mapActions(['login']),
             async authenticate() {
                 try {
                     const response = await axios.post('/api/v1/login/', {
@@ -36,12 +34,12 @@
                     if (response.status === 200) {
                         const token = response.data.token;
                         localStorage.setItem('authToken', token);
-                        console.log("Valid Credentials")
-                        this.$store.commit("initializeStore")
+                        this.$store.commit("login")
                     }
                 } catch (error) {
                     if (error.response.status === 400) {
                         console.log("Invalid Credentials")
+                        this.$store.commit("logout")
                     }
                 }
             }
