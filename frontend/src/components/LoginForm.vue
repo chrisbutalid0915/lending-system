@@ -15,6 +15,7 @@
           <h2 class="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>
+
         </div>
 
         <div class="mt-10">
@@ -78,6 +79,7 @@
 <script>
     import axios from 'axios';
     import router from "@/router";
+    import VueRouter from 'vue-router';
     import ImageViewer from "@/components/ImageViewer";
     export default {
         name: "LoginFrom",
@@ -92,6 +94,7 @@
         },
         methods: {
             async authenticate() {
+              console.log(this.$route.name)
                 try {
                     const response = await axios.post('/api/v1/login/', {
                     username: this.username,
@@ -101,6 +104,10 @@
                         const token = response.data.token;
                         localStorage.setItem('authToken', token);
                         this.$store.commit("login")
+
+                        // router.push({ path: '/dashboard' });
+                        window.location.reload();
+                        //
                     }
                 } catch (error) {
                     if (error.response.status === 400) {

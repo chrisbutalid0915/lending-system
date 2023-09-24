@@ -1,4 +1,4 @@
-# frontend
+# Lending System
 
 ## Project setup
 ```
