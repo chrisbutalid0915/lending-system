@@ -94,7 +94,7 @@
         },
         methods: {
             async authenticate() {
-              console.log(this.$route.name)
+
                 try {
                     const response = await axios.post('/api/v1/login/', {
                     username: this.username,

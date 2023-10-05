@@ -16,14 +16,20 @@
         </div>
       </div>
     </div>
+
+    <bread-crumbs :name="currentRouteName"></bread-crumbs>
   </div>
 </template>
 
 <script>
+  import BreadCrumbs from "@/components/BreadCrumbs";
     export default {
         name: "HeaderPanel",
         props: {
             currentRouteName: String,
+        },
+        components: {
+          BreadCrumbs
         },
         data() {
             return {

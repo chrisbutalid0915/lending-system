@@ -33,7 +33,7 @@
 <script>
     import HeaderPanel from "@/components/HeaderPanel";
     import ActionPanel from "@/components/ActionPanel";
-    import ListTable from "@/Loan/ListTable";
+    import ListTable from "@/Loan/LoanApplication/ListTable";
     export default {
         name: "LoanForm",
         components: {

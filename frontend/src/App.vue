@@ -24,9 +24,12 @@
           return {
               auth: '',
               auth_token: '',
+              currentRouteName: '',
           }
         },
         mounted() {
+            this.currentRouteName = this.$route.name;
+            console.log(this.currentRouteName)
             this.$store.commit('initializeStore')
             this.auth_token = this.$store.state.token;
             this.authenticate_token()

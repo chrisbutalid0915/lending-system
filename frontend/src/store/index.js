@@ -4,10 +4,12 @@ import router from '@/router';
 export default createStore({
     state: {
         token: '',
+        currentRouteName: '',
         isAuthenticated: false,
     },
     mutations: {
         initializeStore(state) {
+
             if (localStorage.getItem('authToken')) {
                 state.token = localStorage.getItem('authToken')
                 state.isAuthenticated = true
@@ -18,7 +20,6 @@ export default createStore({
         },
         login(state) {
             state.isAuthenticated = true;
-            // this.$router.go(-1);
             router.push({ path: '/dashboard' });
 
         },
@@ -26,10 +27,14 @@ export default createStore({
             state.isAuthenticated = false;
             // router.push({ path: '/login' });
         },
+        routerName(state, name) {
+            state.currentRouteName = name;
+        }
     },
     actions: {
     },
     getters: {
+        currentRouteName: (state) => state.currentRouteName,
         isAuthenticated: (state) => state.isAuthenticated,
     },
 });
