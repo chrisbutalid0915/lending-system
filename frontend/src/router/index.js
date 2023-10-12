@@ -35,6 +35,8 @@ import JournalVoucherEntry from "@/AccountingModule/JournalVoucherEntry";
 import CashVoucherEntry from "@/AccountingModule/CashVoucherEntry";
 import ProfitReport from "@/AccountingModule/ProfitAndLossReport/ProfitReport";
 import LossReport from "@/AccountingModule/ProfitAndLossReport/LossReport";
+import CreateClient from "@/Client/CreateClient";
+import UpdateClient from "@/Client/UpdateClient";
 
 
 const routes = [
@@ -77,6 +79,16 @@ const routes = [
         path: "/client-information",
         name: "Client Information",
         component: ClientInformation,
+    },
+    {
+        path: "/create-client",
+        name: "Create Client",
+        component: CreateClient,
+    },
+    {
+        path: "/update-client",
+        name: "Update Client",
+        component: UpdateClient,
     },
     {
         path: "/data-entry",

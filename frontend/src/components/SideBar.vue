@@ -26,7 +26,7 @@
                   <ul role="list" class="flex flex-1 flex-col gap-y-7">
                     <li>
                       <ul role="list" class="-mx-2 space-y-1">
-                        <li v-for="item in navigation" :key="item.name">
+                        <li v-for="(item, index) in navigation" :key="index" @click="handleItemClick(index)" :class="{ selected: item.selected }">
                           <a v-if="!item.children" :class="[item.current ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
                             <component :is="item.icon" class="h-6 w-6 shrink-0" aria-hidden="true" />
                             <router-link :to="item.href">{{ item.name }}</router-link>
@@ -71,10 +71,10 @@
           <ul role="list" class="flex flex-1 flex-col gap-y-7">
             <li>
               <ul role="list" class="-mx-2 space-y-1 text-left">
-                <li v-for="item in navigation" :key="item.name">
+                <li v-for="(item, index) in navigation" :key="index" @click="handleItemClick(index)" :class="{ selected: item.selected }">
                   <a v-if="!item.children" :class="[item.current ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800', 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
                     <component :is="item.icon" class="h-6 w-6 shrink-0" aria-hidden="true" />
-                    <router-link :to="item.href">{{ item.name }}</router-link>
+                    <router-link :to="item.href" >{{ item.name }}</router-link>
                   </a>
                   <Disclosure as="div" v-else v-slot="{ open }">
                     <DisclosureButton :class="[item.current ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800', 'flex items-center w-full text-left group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold']">
@@ -84,9 +84,11 @@
                     </DisclosureButton>
                     <DisclosurePanel as="ul" class="mt-1 px-2">
                       <li v-for="subItem in item.children" :key="subItem.name">
-                        <DisclosureButton as="a" :class="[subItem.current ? 'bg-gray-50' : 'hover:bg-gray-50', 'block rounded-md py-2 pr-2 pl-9 text-sm leading-6 text-gray-400']">
-                          <router-link :to="subItem.href">{{ subItem.name }}</router-link>
-                        </DisclosureButton>
+                        <router-link :to="subItem.href">
+                          <DisclosureLabel :class="[subItem.current ? 'bg-blue-50' : 'hover:bg-gray-50', 'block rounded-md py-2 pr-2 pl-9 text-sm leading-6 text-gray-400']">
+                            {{ subItem.name }}
+                          </DisclosureLabel>
+                        </router-link>
                       </li>
                     </DisclosurePanel>
                   </Disclosure>
@@ -128,7 +130,7 @@
       TransitionRoot,
       Disclosure,
       DisclosureButton,
-      DisclosurePanel
+      DisclosurePanel,
     } from '@headlessui/vue'
     import { ChevronRightIcon } from '@heroicons/vue/20/solid'
     import {
@@ -234,7 +236,8 @@
             currentRouteName: "",
             user: {
               username: "Chris Butalid"
-            }
+            },
+
           };
         },
         mounted() {
@@ -247,10 +250,14 @@
             // Update the sidebarOpen data property to false when the window is resized
             this.sidebarOpen = false;
           },
+          handleItemClick(index) {
+            this.navigation.forEach((item, i) => {
+              item.current = i === index;
+            });
+          }
         }
     }
 </script>
 
 <style scoped>
-
 </style>
