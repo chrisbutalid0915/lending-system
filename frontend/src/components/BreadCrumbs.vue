@@ -4,8 +4,9 @@
       <li>
         <div>
           <a href="#" class="text-gray-400 hover:text-gray-500">
+            <router-link :to="dashboardUrl">
             <HomeIcon class="h-5 w-5 flex-shrink-0" aria-hidden="true" />
-            <span class="sr-only">Home</span>
+            <span class="sr-only">Home</span></router-link>
           </a>
         </div>
       </li>
@@ -36,7 +37,8 @@
                 pages : [
                     { name: 'Projects', href: '#', current: false },
                     { name: 'Project Nero', href: '#', current: true },
-                ]
+                ],
+                dashboardUrl: '/dashboard',
             }
         }
     }

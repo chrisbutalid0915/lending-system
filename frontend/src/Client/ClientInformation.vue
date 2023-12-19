@@ -2,32 +2,31 @@
     <header-panel :current-route-name="currentRouteName"></header-panel>
     <action-panel></action-panel>
 
-
         <div class="mt-2 border-gray-200 pb-5 sm:flex sm:items-center sm:justify-between">
-        <br>
-        <div class="mt-3 sm:ml-4 sm:mt-0">
+            <br>
+            <div class="mt-3 sm:ml-4 sm:mt-0">
 
-          <button type="button"
-                  class="inline-flex
-                         items-center
-                         rounded-md
-                         bg-indigo-600
-                         px-3
-                         py-2
-                         text-sm
-                         font-semibold
-                         text-white
-                         shadow-sm
-                         hover:bg-indigo-500
-                         focus-visible:outline
-                         focus-visible:outline-2
-                         focus-visible:outline-offset-2
-                         focus-visible:outline-indigo-600">
-              <router-link :to="urlCreateClient">Add new Member</router-link>
+              <button type="button"
+                      class="inline-flex
+                             items-center
+                             rounded-md
+                             bg-indigo-600
+                             px-3
+                             py-2
+                             text-sm
+                             font-semibold
+                             text-white
+                             shadow-sm
+                             hover:bg-indigo-500
+                             focus-visible:outline
+                             focus-visible:outline-2
+                             focus-visible:outline-offset-2
+                             focus-visible:outline-indigo-600">
+                  <router-link :to="urlCreateClient">Add new Member</router-link>
 
-          </button>
+              </button>
+            </div>
         </div>
-    </div>
 
 
     <list-table :data="data"></list-table>

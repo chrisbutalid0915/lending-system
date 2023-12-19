@@ -6,7 +6,6 @@
               <label class="font-semibold block text-sm font-medium leading-6 text-gray-900">Photo</label>
               <div class="mt-2 flex items-center gap-x-3">
                 <img class="inline-block h-24 w-24 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-    <!--                <UserCircleIcon class="inline-block h-14 w-14 rounded-full" aria-hidden="true" />-->
                 <button type="button"
                         class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
               </div>
@@ -124,7 +123,7 @@
             <div class="sm:col-span-2 sm:col-start-1">
               <label for="city"
                      class="font-semibold block text-sm font-medium leading-6 text-gray-900"
-              >City</label>
+              >Municipality / City</label>
               <div class="mt-2">
                 <input type="text"
                        name="city"
@@ -203,7 +202,7 @@
         props: {
           clientData: Object
         },
-        components: {VueDatePicker},
+        components: { VueDatePicker },
         data() {
             return {
                 dateOfBirth: null,

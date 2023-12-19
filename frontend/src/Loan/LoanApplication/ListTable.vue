@@ -23,7 +23,9 @@
                 <td class="whitespace-nowrap px-3 py-4 text-left text-sm text-gray-500">{{ row.role }}</td>
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <a href="#" class="text-indigo-600 hover:text-indigo-900"
-                    >Edit<span class="sr-only">, {{ row.name }}</span></a
+                    >
+                    <router-link :to="urlUpdateLoanApplication">Edit</router-link>
+                    <span class="sr-only">, {{ row.name }}</span></a
                   >
                 </td>
               </tr>
@@ -97,7 +99,8 @@
               { id: 1, title: 'Back End Developer', department: 'Engineering', type: 'Full-time', location: 'Remote' },
               { id: 2, title: 'Front End Developer', department: 'Engineering', type: 'Full-time', location: 'Remote' },
               { id: 3, title: 'User Interface Designer', department: 'Design', type: 'Full-time', location: 'Remote' },
-            ]
+            ],
+            urlUpdateLoanApplication: '/update-loan-application',
           }
         }
     }
