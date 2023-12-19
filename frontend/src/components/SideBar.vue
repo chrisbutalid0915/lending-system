@@ -224,9 +224,9 @@
               },
               { name: 'Key Result Area', href: '#', icon: DocumentChartBarIcon, current: false,
                 children: [
-                  { name: 'Profit And Loss', href: '#' },
-                  { name: 'Actual Loan Releases vs Loan Target', href: '#' },
-                  { name: 'Collections vs Uncollected and Past Due Account', href: '#' },
+                  // { name: 'Profit And Loss', href: '#' },
+                  { name: 'Actual Loan Releases vs Loan Target', href: '/loan-release' },
+                  { name: 'Collections vs Uncollected and Past Due Account', href: '/collection-and-uncollected' },
                 ],
               },
             ],

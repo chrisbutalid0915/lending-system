@@ -56,6 +56,8 @@ import CreateCashInVault from "@/Cashiering/CashInVault/CreateCashInVault";
 import CreateCorrectingEntry from "@/Cashiering/CorrectingEntry/CreateCorrectingEntry";
 import CreateJournalVoucher from "@/AccountingModule/JournalVoucher/CreateJournalVoucher";
 import CreateCashVoucher from "@/AccountingModule/CashVoucher/CreateCashVoucher";
+import ActualLoanReleasesVSLoanTarget from "@/KeyResultArea/ActualLoanReleases/ActualLoanReleasesVSLoanTarget";
+import CollectionVSUncollectedAndPastDue from "@/KeyResultArea/CollectionUncollected/CollectionVSUncollectedAndPastDue";
 
 
 const routes = [
@@ -347,6 +349,16 @@ const routes = [
         path: "/loss-report",
         name: "Loss Report",
         component:LossReport,
+    },
+    {
+        path: "/loan-release",
+        name: "Actual Loan Release",
+        component:ActualLoanReleasesVSLoanTarget,
+    },
+    {
+        path: "/collection-and-uncollected",
+        name: "Collection and Uncollected",
+        component:CollectionVSUncollectedAndPastDue,
     },
 ];
 
